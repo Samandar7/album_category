@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Galarey {% endblock title %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row d-flex">
+    {% for Photo in list %}
+    <div class="card m-2" style="width: 18rem;">
+    <img src="{{ Photo.image.url }}" class="card-img-top" alt="img">
+        <div class="card-body">
+            <p class="card-title">Title:{{ Photo.title }}</p>
+            <p class="card-title">category:{{ Photo.category }}</p>
+            <a href="{% url 'detail' Photo.pk %}" class="btn btn-primary">View</a>
+       </div>
+    </div>
+    {% endfor %}
+    </div>
+</div>
+
+
+
+
+{% endblock content %}
